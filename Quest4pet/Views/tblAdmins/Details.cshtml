@@ -1,0 +1,54 @@
+﻿@model Quest4pet.Models.tblAdmin
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblAdmin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Admin Name
+            @*@Html.DisplayNameFor(model => model.Admin_Name)*@
+        </dt>
+
+        <dd>
+            @Model.Admin_Name
+            @*@Html.DisplayFor(model => model.Admin_Name)*@
+        </dd>
+
+        <dt>
+            Admin Password
+        </dt>
+
+        <dd>
+            @Model.Admin_Password
+        </dd>
+
+        <dt>
+            Admin Email
+        </dt>
+        <dd>
+            @Model.Admin_Email
+        </dd>
+
+        <dt>
+            Admin Contact
+        </dt>
+
+        <dd>
+            @Model.Admin_Contact
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <a href="@Url.Action("Edit","tblAdmins", new { id = Model.Admin_ID })" class="btn btn-success fa fa-pencil" ></a>
+    <a href="@Url.Action("Index","tblAdmins")" class="btn btn-info fa fa-refresh" >  Back to List</a>
+
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Admin_ID }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

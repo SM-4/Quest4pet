@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Quest4pet.Models.tblFeedback>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-info fa fa-pencil" href=@Url.Action("Create","tblFeedbacks")>Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tblAccessory.Accessories_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblCustomer.Customer_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblPet.Pets_Name)
+        </th>
+        <th>
+            Feedback Description
+            @Html.DisplayNameFor(model => model.Feedback_Description)
+        </th>
+        <th>
+            Feedback Image
+        </th>
+        <th>
+            Feedback Rating
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var f in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => f.tblAccessory.Accessories_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => f.tblCustomer.Customer_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => f.tblPet.Pets_Name)
+        </td>
+        <td>
+            @f.Feedback_Description
+            @*@Html.DisplayFor(modelItem => item.Feedback_Description)*@
+        </td>
+        <td>
+            @f.Feedback_Image
+        </td>
+        <td>
+            @f.Feedback_Rating
+        </td>
+        <td>
+            <a class="btn btn-warning fa fa-edit" href="@Url.Action("Edit", new {id=f.Feedback_ID})"></a>
+            <a class="btn btn-primary fa fa-book" href="@Url.Action("Details", new {id=f.Feedback_ID})"></a>
+            <a class="btn btn-danger fa fa-trash-o" href="@Url.Action("Delete", new {id=f.Feedback_ID})"></a>
+
+        </td>
+    </tr>
+}
+
+</table>

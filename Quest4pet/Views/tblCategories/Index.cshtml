@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Quest4pet.Models.tblCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-info fa fa-pencil " href="@Url.Action("Create","tblCategories")">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Category Name
+            @*@Html.DisplayNameFor(model => model.Category_Name)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var c in Model) {
+    <tr>
+        <td>
+            @c.Category_Name
+        </td>
+        <td>
+            <a class="btn btn-warning fa fa-edit" href="@Url.Action("Edit", new {id=c.Category_ID})"></a>
+            <a class="btn btn-primary fa fa-book" href="@Url.Action("Details", new {id=c.Category_ID})"></a>
+            <a class="btn btn-danger fa fa-trash-o" href="@Url.Action("Delete", new {id=c.Category_ID})"></a>
+     </td>
+    </tr>
+}
+
+</table>

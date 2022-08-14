@@ -1,0 +1,65 @@
+﻿@model Quest4pet.Models.tblPet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>tblPet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+           Category Name
+            @*@Html.DisplayNameFor(model => model.tblCategory.Category_Name)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategory.Category_Name)
+        </dd>
+
+        <dt>
+            Pet Name
+        </dt>
+
+        <dd>
+            @Model.Pets_Name
+        </dd>
+
+        <dt>
+            Pet Image
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Pets_Image)" width="100" height="100" />
+        </dd>
+
+        <dt>
+            Pet Description
+        </dt>
+
+        <dd>
+            @Model.Pets_Description
+        </dd>
+
+        <dt>
+            Pet Price
+        </dt>
+
+        <dd>
+            @Model.Pets_Price
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Quest4pet.Models.tblAccessory>
+
+@*@{
+    ViewBag.Title = "Index";
+}*@
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-info fa fa-pencil" href="@Url.Action("Create","tblAccessories")">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Accessories Name
+            @*@Html.DisplayNameFor(model => model.Accessories_Name)*@
+        </th>
+        <th>
+            Accessories Image
+        </th>
+        <th>
+            Accessories Description
+        </th>
+        <th>
+            Accessories Price
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var acesry in Model) {
+    <tr>
+        <td>
+            @acesry.Accessories_Name
+            @*@Html.DisplayFor(modelItem => item.Accessories_Name)*@
+        </td>
+        <td>
+            @acesry.Accessories_Image
+        </td>
+        <td>
+            @acesry.Accessories_Description
+        </td>
+        <td>
+            @acesry.Accessories_Price
+        </td>
+        <td>
+            <a class="fa fa-edit btn btn-warning " href=@Url.Action("Edit", new {id=acesry.Accessories_ID})></a>
+            <a class="fa fa-book btn btn-primary " href=@Url.Action("Details", new {id=acesry.Accessories_ID})></a>
+            <a class="fa fa-trash-o btn btn-danger " href=@Url.Action("Delete", new {id=acesry.Accessories_ID})></a>
+
+        </td>
+    </tr>
+}
+
+</table>

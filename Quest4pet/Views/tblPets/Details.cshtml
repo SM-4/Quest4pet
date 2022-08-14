@@ -1,0 +1,61 @@
+﻿@model Quest4pet.Models.tblPet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblPet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Category Name
+            @*@Html.DisplayNameFor(model => model.tblCategory.Category_Name)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblCategory.Category_Name)
+        </dd>
+
+        <dt>
+            Pet Name
+            @*@Html.DisplayNameFor(model => model.Pets_Name)*@
+        </dt>
+
+        <dd>
+            @Model.Pets_Name
+            @*@Html.DisplayFor(model => model.Pets_Name)*@
+        </dd>
+
+        <dt>
+            Pet Image
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Pets_Image)" width="100" height="100" />
+        </dd>
+
+        <dt>
+            Pet Description
+        </dt>
+
+        <dd>
+            @Model.Pets_Description
+        </dd>
+
+        <dt>
+            Pet Price
+        </dt>
+
+        <dd>
+            @Model.Pets_Price
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Pets_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
