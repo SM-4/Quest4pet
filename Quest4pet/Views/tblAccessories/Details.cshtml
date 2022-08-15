@@ -11,35 +11,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Accessories_Name)
+            Accessory Name
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Accessories_Name)
+            @Model.Accessories_Name
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Accessories_Image)
+            Accessory Image
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Accessories_Image)
+            <img src="@Url.Content(Model.Accessories_Image)" width="100" height="100" />
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Accessories_Description)
+            Accessory Description
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Accessories_Description)
+            @Model.Accessories_Description
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Accessories_Price)
+            Accessory Price
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Accessories_Price)
+            @Model.Accessories_Price
         </dd>
 
     </dl>

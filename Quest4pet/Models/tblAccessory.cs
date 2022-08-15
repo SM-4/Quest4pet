@@ -22,7 +22,6 @@ namespace Quest4pet.Models
         [StringLength(50)]
         public string Accessories_Name { get; set; }
 
-        [Required]
         [StringLength(300)]
         public string Accessories_Image { get; set; }
 

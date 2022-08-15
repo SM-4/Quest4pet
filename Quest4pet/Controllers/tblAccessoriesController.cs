@@ -46,8 +46,13 @@ namespace Quest4pet.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Accessories_ID,Accessories_Name,Accessories_Image,Accessories_Description,Accessories_Price")] tblAccessory tblAccessory)
+        public ActionResult Create(tblAccessory tblAccessory, HttpPostedFileBase picture )
         {
+            string fullpath=Server.MapPath("~/content/petpics/" +picture.FileName);
+            picture.SaveAs(fullpath);
+            tblAccessory.Accessories_Image="~/content/petpics/" +picture.FileName;
+            
+
             if (ModelState.IsValid)
             {
                 db.tblAccessories.Add(tblAccessory);
@@ -78,8 +83,14 @@ namespace Quest4pet.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Accessories_ID,Accessories_Name,Accessories_Image,Accessories_Description,Accessories_Price")] tblAccessory tblAccessory)
+        public ActionResult Edit(tblAccessory tblAccessory , HttpPostedFileBase picture)
         {
+            if(picture!=null)
+            {
+                string fullpath=Server.MapPath("~/content/petpics/" + picture.FileName);
+                picture.SaveAs (fullpath);
+                tblAccessory.Accessories_Image = "~/content/petpics/" + picture.FileName;
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(tblAccessory).State = EntityState.Modified;

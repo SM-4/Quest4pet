@@ -34,7 +34,8 @@
             @*@Html.DisplayFor(modelItem => item.Accessories_Name)*@
         </td>
         <td>
-            @acesry.Accessories_Image
+            @*@acesry.Accessories_Image*@
+            <img src="@Url.Content(acesry.Accessories_Image)" width="100", height="100" />
         </td>
         <td>
             @acesry.Accessories_Description

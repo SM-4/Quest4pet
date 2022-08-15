@@ -25,9 +25,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Accessories_Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="picture" required accept="img/*" />
+                <input type="file" name="picture" required accept="img/*" class="btn btn-success"/>
 
-                @Html.ValidationMessageFor(model => model.Accessories_Image, "", new { @class = "text-danger" })
             </div>
         </div>
 
